@@ -1,0 +1,51 @@
+.Workshops-Category-Header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+}
+
+.Workshops-Category-Header article {
+  display: flex;
+  width: 60%;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.Workshops-Category-Header h2 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.Workshops-Category-Header img {
+  width: 11rem;
+  height: 11rem;
+}
+
+.Workshops-Category-Header p {
+  width: 80%;
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+.Workshops-Glide-Container {
+  padding: 0 4rem 0 4rem;
+  margin-top: 1.5rem;
+}
+
+.Workshops-Glide-Container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 3rem;
+}
+
+.Workshops-Glide-Container h3 {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.Workshops-Glide-Container .glider-track {
+  padding: 2rem 0 2rem 0;
+}

@@ -1,0 +1,46 @@
+.Card-Wrapper {
+  height: 20rem;
+  width: 16rem;
+  overflow: hidden;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  background-color: rgb(252, 252, 252);
+  margin: 0 2rem 0 2rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.Card-Wrapper:hover {
+  background-color: rgb(254, 249, 242);
+  filter: drop-shadow(7.5px 6px 7.5px #0c0c0c);
+  /* border-style: none; */
+}
+
+.Card-Body {
+  margin: 0.8rem 0.8rem 0 0.8rem;
+  text-align: center;
+}
+
+.Card-Body img {
+  height: 6rem;
+  width: 10rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.Card-Body h4 {
+  font-weight: bold;
+  text-align: center !important;
+  font-size: 1.2rem;
+}
+
+.Card-Body input {
+  width: 100%;
+}
+
+.Card-Body p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
