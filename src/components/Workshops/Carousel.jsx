@@ -1,6 +1,7 @@
 // Dependencies
 import { useRef, useState } from 'react';
 import Glider from 'react-glider';
+import axios from 'axios'
 // Utils
 import generateId from '../../utils/generateId.js';
 // Components
@@ -14,41 +15,28 @@ export default function Carousel(props) {
   const [cardData, setCardData] = useState(props.data);
 
   const addCard = () => {
-    const newData = { ...cardData };
-    newData.categoryData.push({
-      id: generateId(newData.categoryData),
-      workshopName: 'new lorem',
-      workshopDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis!',
-      workshopShortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis!',
-      workshopImage: "https://picsum.photos/id/237/300/200?grayscale",
-    });
-    setCardData(newData);
+    axios.post('/workshops').then(() => {
+      props.getWorkshops()
+    })
   };
 
   const deleteCard = (id) => {
-    const newData = { ...cardData };
+    // const newData = { ...cardData };
 
-    const index = newData.categoryData.findIndex((card) => card.id === id);
+    // const index = newData.categoryData.findIndex((card) => card.id === id);
 
-    newData.categoryData.splice(index, 1);
+    // newData.categoryData.splice(index, 1);
 
-    setCardData(newData);
+    // setCardData(newData);
+    axios.delete(`/workshops/${id}`).then(res => {
+      props.getWorkshops()
+    })
   };
 
   const editCard = (index, newText) => {
-    const newData = { ...cardData };
-
-    const originalCardData = newData.categoryData[index];
-
-    // param1: og obj
-    // param2: obj of what to modify
-    const newCardData = Object.assign(
-      originalCardData,
-      newText
-    );
-
-    newData.categoryData[index] = newCardData;
-    setCardData(newData);
+    axios.put(`/workshops/${index}`, { name: newText.workshopName, shortDescription: newText.workshopShortDescription }).then(() => {
+      props.getWorkshops()
+    })
   };
 
   const gliderRef = useRef(null);

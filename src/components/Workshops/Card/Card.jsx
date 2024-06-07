@@ -45,6 +45,8 @@ export default function Card(props) {
       </div>
       <CardButtons 
         buttonData={{ id, text, title }}
+        deleteCard={props.deleteCard}
+        editCard={props.editCard}
         isEditableState={{ isEditable, setIsEditable }}
       />
     </article>

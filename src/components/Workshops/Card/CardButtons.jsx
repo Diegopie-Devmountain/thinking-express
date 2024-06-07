@@ -12,7 +12,7 @@ export default function CardButtons(props) {
           <button className='App-Icons' onClick={() => {
             // * Add Edit card on refactor
             // * Highlight that we are selecting the keys we want to update and the values we want it to have (Postgres setup)
-            props.editCard(props.data.index, { workshopShortDescription: text, workshopName: title })
+            props.editCard(id, { workshopShortDescription: text, workshopName: title })
             setIsEditable(false)
           }}>
             <Save width='1.5rem' />
