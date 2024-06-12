@@ -29,7 +29,7 @@ app.post('/workshops', (req, res) => {
 
   workshopsData.categoryData.push(newCard)
 
-  res.status(200)
+  res.status(200).json({ message: 'category data added' })
 })
 
 app.put('/workshops/:id', (req, res) => {
@@ -42,10 +42,10 @@ app.put('/workshops/:id', (req, res) => {
       workshopShortDescription: req.body.workshopShortDescription 
     }
 
-    return res.status(200)
+    return res.status(200).json({ message: 'category updated' })
   }
 
-  return res.status(400)
+  return res.status(400).json({ message: 'error updating category data'})
 })
 
 app.delete('/workshops/:id', (req, res) => {
@@ -57,10 +57,10 @@ app.delete('/workshops/:id', (req, res) => {
   if (foundWorkshopId !== -1) {
     workshopsData.categoryData.splice(foundWorkshopId, 1)
 
-    return res.status(200)
+    return res.status(200).json({ message: 'category data deleted' })
   }
 
-  return res.status(400)
+  return res.status(400).json({ message: 'error deleting category data'})
 })
 
 ViteExpress.listen(app, port, () => console.log(`Server is listening on port ${port}`))

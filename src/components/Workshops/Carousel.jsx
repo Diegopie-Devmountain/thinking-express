@@ -12,8 +12,6 @@ import { Add } from '../Icons.jsx';
 
 export default function Carousel(props) {
 
-  const [cardData, setCardData] = useState(props.data);
-
   const addCard = () => {
     axios.post('/workshops').then(() => {
       props.getWorkshops()
@@ -21,13 +19,6 @@ export default function Carousel(props) {
   };
 
   const deleteCard = (id) => {
-    // const newData = { ...cardData };
-
-    // const index = newData.categoryData.findIndex((card) => card.id === id);
-
-    // newData.categoryData.splice(index, 1);
-
-    // setCardData(newData);
     axios.delete(`/workshops/${id}`).then(res => {
       props.getWorkshops()
     })
@@ -43,7 +34,7 @@ export default function Carousel(props) {
   return (
     <section className='Workshops-Glide-Container'>
       <header>
-        <h3>{cardData.categoryName}</h3>
+        <h3>{props.data.categoryName}</h3>
         <button onClick={addCard}><Add width='1.5rem' /></button>
       </header>
       <Glider
@@ -62,7 +53,7 @@ export default function Carousel(props) {
           }
         ]}
       >
-        {cardData.categoryData.map((workshop, index) => {
+        {props.data.categoryData.map((workshop, index) => {
           return (
             <Card
               key={workshop.id}
